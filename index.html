@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Video Upload Site</title>
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #f0f0f0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     margin: 0;
+   }
+
+   h1 {
+     font-size: 2rem;
+     margin-bottom: 1rem;
+   }
+
+   form {
+     background-color: #fff;
+     padding: 2rem;
+     border-radius: 8px;
+   }
+
+   input[type="file"] {
+     margin-bottom: 1rem;
+   }
+
+   input[type="submit"] {
+     background-color: #007BFF;
+     color: #fff;
+     cursor: pointer;
+     border: none;
+     padding: 0.5rem 1rem;
+     border-radius: 4px;
+     font-size: 1rem;
+   }
+ </style>
+</head>
+<body>
+ <h1>Upload Video</h1>
+ <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept="video/*">
+    <br>
+    <input type="submit" value="Upload">
+ </form>
+</body>
+</html>
