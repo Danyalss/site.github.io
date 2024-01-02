@@ -1,24 +1,8 @@
-/* Default styles that will apply on desktop and can be overridden by media queries for smaller screens */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-video {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 0;
-    }
-    /* Any other specific styles for mobile devices */
-}
-
-/* You can also use a min-width media query for desktop-specific styles if needed */
 @media (min-width: 601px) {
-    /* Desktop-specific styles if your default styles didn't cover it */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    /* Any other specific styles for larger screens */
 }
