@@ -1,8 +1,0 @@
-@media (min-width: 601px) {
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-    }
-    /* Any other specific styles for larger screens */
-}
