@@ -1,21 +1,24 @@
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-h1 {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
+/* Default styles that will apply on desktop and can be overridden by media queries for smaller screens */
 .container {
-    max-width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 15px;
 }
-figure {
-    text-align: center;
-    margin: 15px 0;
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+    /* Any other specific styles for mobile devices */
+}
+
+/* You can also use a min-width media query for desktop-specific styles if needed */
+@media (min-width: 601px) {
+    /* Desktop-specific styles if your default styles didn't cover it */
 }
