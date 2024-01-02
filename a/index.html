@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +43,11 @@
         .video-button:hover {
             background-color: #555;
         }
+        /* Responsive video */
+        video {
+            max-width: 100%;
+            height: auto;
+        }
         /* Responsive layout for smaller screens */
         @media (max-width: 600px) {
             .container {
@@ -64,14 +69,28 @@
     <div class="container">
         <figure>
             <a href="V1.html" class="video-button">فیلم 1</a>
-            <iframe width="100%" height="480" src="V1.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <video id="video1" src="Vid/1.mp4" autoplay muted loop preload="metadata">فیلم 1</video>
             <figcaption><a href="V1.html">فیلم 1</a></figcaption>
         </figure>
         <figure>
             <a href="V2.html" class="video-button">فیلم 2</a>
-            <iframe width="100%" height="480" src="V2.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <video id="video2" src="Vid/2.mp4" autoplay muted loop preload="metadata">فیلم 2</video>
             <figcaption><a href="V2.html">فیلم 2</a></figcaption>
         </figure>
     </div>
+    <script>
+        window.addEventListener('load', (event) => {
+            var video1 = document.getElementById('video1');
+            var video2 = document.getElementById('video2');
+            video1.onloadedmetadata = function() {
+                video1.currentTime = 3;
+                video1.play();
+            }
+            video2.onloadedmetadata = function() {
+                video2.currentTime = 3;
+                video2.play();
+            }
+        });
+    </script>
 </body>
 </html>
