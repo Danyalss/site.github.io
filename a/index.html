@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>masoud hub</title>
-    <script src="js.js"></script> 
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #141010;
+            background-color: #333;
             margin: 0;
             padding: 0;
             color: #fff;
@@ -91,13 +90,27 @@
         window.addEventListener('load', (event) => {
             var video1 = document.getElementById('video1');
             var video2 = document.getElementById('video2');
+
             video1.onloadedmetadata = function() {
-                video1.currentTime = 3;
+                var randomStart = Math.random() * (video1.duration - 5);
+                video1.currentTime = randomStart;
                 video1.play();
+                setTimeout(function(){ 
+                    video1.pause(); 
+                    video1.loop = true;
+                    video1.play();
+                }, 5000);
             }
+
             video2.onloadedmetadata = function() {
-                video2.currentTime = 3;
+                var randomStart = Math.random() * (video2.duration - 5);
+                video2.currentTime = randomStart;
                 video2.play();
+                setTimeout(function(){ 
+                    video2.pause(); 
+                    video2.loop = true;
+                    video2.play();
+                }, 5000);
             }
         });
     </script>
