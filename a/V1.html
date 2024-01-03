@@ -1,15 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مسعود هاب</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 85%;
+            height: 85%;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 2em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        /* Responsive layout for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 0;
+            }
+        }
+        /* Styles for larger screens */
+        @media (min-width: 601px) {
+            .container {
+                width: 80%;
+                padding: 0 10%;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>فیلم 1</h1>
-    <video width="100%" height="480" controls>
-        <source src="Vid/1.mp4" type="video/mp4">
-        مرورگر شما از پخش ویدیو پشتیبانی نمیکند.
-    </video>
+    <div class="container">
+        <video controls>
+            <source src="Vid/1.mp4" type="video/mp4">
+            مرورگر شما از پخش ویدیو پشتیبانی نمیکند.
+        </video>
+    </div>
 </body>
 </html>
