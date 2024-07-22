@@ -32,7 +32,7 @@ def handle_message(message):
 
     if uploaded_video_id is None:
         with open(VIDEO_PATH, 'rb') as video:
-            msg = bot.send_video(message.chat.id, video, caption=description, reply_markup=markup)
+            msg = bot.send_video(message.chat.id, video, caption=description, reply_markup=markup, timeout=60)
             uploaded_video_id = msg.video.file_id
             print(f'Uploaded video ID: {uploaded_video_id}')
     else:
