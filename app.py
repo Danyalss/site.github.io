@@ -23,7 +23,7 @@ def handle_message(message):
 
     # افزودن نام کاربر به توضیحات
     user_first_name = message.from_user.first_name
-    description = f"سلام {user_first_name}! این یک ویدئو است با توضیحات خاص."
+    description = f"سلام {user_first_name}! . \n اینجا صدیقی کوین عه و دانیال بیکار اینو ساخته و خودشم نمی دونه جرا ساخته ولی خوب ... "
 
     # ایجاد دکمه شیشه‌ای
     markup = types.InlineKeyboardMarkup()
