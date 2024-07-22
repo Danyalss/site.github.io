@@ -15,7 +15,7 @@ bot = TeleBot(BOT_TOKEN)
 VIDEO_PATH = 'vid.mp4'
 
 # لینک آپلود شده ویدئو
-uploaded_video_id = None
+uploaded_video_id = 'BAACAgQAAxkDAAMHZp679V6OZLA4aKjc4bJ3x0HzSL8AAtQVAAKqBPlQxhJN7Q3FG0M1BA'
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
@@ -27,12 +27,13 @@ def handle_message(message):
 
     # ایجاد دکمه شیشه‌ای
     markup = types.InlineKeyboardMarkup()
-    button = types.InlineKeyboardButton("ورود به صدیقی کوین 🎨", url='https://danyalss.github.io/site.github.io')
+    web_app_info = types.WebAppInfo(url='https://danyalss.github.io/site.github.io')
+    button = types.InlineKeyboardButton(text="ورود به صدیقی کوین 🎨", web_app=web_app_info)
     markup.add(button)
 
     if uploaded_video_id is None:
         with open(VIDEO_PATH, 'rb') as video:
-            msg = bot.send_video(message.chat.id, video, caption=description, reply_markup=markup, timeout=60)
+            msg = bot.send_video(message.chat.id, video, caption=description, reply_markup=markup)
             uploaded_video_id = msg.video.file_id
             print(f'Uploaded video ID: {uploaded_video_id}')
     else:
