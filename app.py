@@ -1,12 +1,6 @@
 import os
 from telebot import TeleBot, types
 import pickle
-import os
-
-
-
-    # # pip install python-dotenv
-    # from dotenv import load_dotenv
 
 def save_user_ids(user_ids):
     with open('backup/user_ids.pickle', 'wb') as handle:
@@ -18,34 +12,28 @@ def load_user_ids():
             user_ids = pickle.load(handle)
             return user_ids
     except FileNotFoundError:
-        # Create the backup directory if it doesn't exist
         os.makedirs('backup', exist_ok=True)
-        # Create the file and return an empty list
         with open('backup/user_ids.pickle', 'wb') as handle:
             pickle.dump([], handle)
         return []
 
-
-# دریافت توکن ربات از متغیرهای محیطی
-BOT_TOKEN = '7477026941:AAHzwdrmHfSX25w-DgQ2nnCinVd7af8sZ8I'
-
+# Bot token and other constants
+BOT_TOKEN = 'YOUR_BOT_API_TOKEN'
 bot = TeleBot(BOT_TOKEN)
 admin_id = 1663788795
-# ویدئو ثابت
 VIDEO_PATH = 'vid.mp4'
-
-# لینک آپلود شده ویدئو
 uploaded_video_id = 'BAACAgQAAxkDAAMHZp679V6OZLA4aKjc4bJ3x0HzSL8AAtQVAAKqBPlQxhJN7Q3FG0M1BA'
+
+# Initialize new_users
+new_users = 0
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
-    global uploaded_video_id
+    global uploaded_video_id, new_users
 
-    # افزودن نام کاربر به توضیحات
     user_first_name = message.from_user.first_name
     description = f"سلام {user_first_name}! . \n اینجا صدیقی کوین عه و دانیال بیکار اینو ساخته و خودشم نمی دونه جرا ساخته ولی خوب ... "
 
-    # ایجاد دکمه شیشه‌ای
     markup = types.InlineKeyboardMarkup()
     web_app_info = types.WebAppInfo(url='https://danyalss.github.io/site.github.io')
     button = types.InlineKeyboardButton(text="ورود به صدیقی کوین 🎨", web_app=web_app_info)
@@ -60,16 +48,11 @@ def handle_message(message):
         bot.send_video(message.chat.id, uploaded_video_id, caption=description, reply_markup=markup)
 
     chat_id = message.chat.id
-
-    # ذخیره آیدی عددی کاربر
     user_ids = load_user_ids()
     if chat_id not in user_ids:
-        global new_users
         user_ids.append(chat_id)
         save_user_ids(user_ids)
 
-
-        # ارسال جزئیات کاربر جدید به مدیر
         user_details = f"🍔 کاربر جدید {chat_id} به ربات اضافه شد.\n\n"
         user_details += f"ایدی عددی کاربر: {chat_id}\n"
         user_details += f"نام: {message.from_user.first_name if message.from_user.first_name else 'نامشخص'}\n"
@@ -85,6 +68,5 @@ def handle_message(message):
             bot.send_message(admin_id, user_details, parse_mode='Markdown', disable_web_page_preview=True)
 
         new_users += 1
-
 
 bot.polling()
