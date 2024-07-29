@@ -1,6 +1,8 @@
 import os
 from telebot import TeleBot, types
 import pickle
+import os
+
 
 
     # # pip install python-dotenv
@@ -16,9 +18,12 @@ def load_user_ids():
             user_ids = pickle.load(handle)
             return user_ids
     except FileNotFoundError:
+        # Create the backup directory if it doesn't exist
+        os.makedirs('backup', exist_ok=True)
+        # Create the file and return an empty list
+        with open('backup/user_ids.pickle', 'wb') as handle:
+            pickle.dump([], handle)
         return []
-
-load_user_ids()
 
 
 # دریافت توکن ربات از متغیرهای محیطی
