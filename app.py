@@ -17,11 +17,15 @@ def load_user_ids():
             pickle.dump([], handle)
         return []
 
-# Bot token and other constants
-BOT_TOKEN = 'YOUR_BOT_API_TOKEN'
+# دریافت توکن ربات از متغیرهای محیطی
+BOT_TOKEN = '7477026941:AAHzwdrmHfSX25w-DgQ2nnCinVd7af8sZ8I'
+
 bot = TeleBot(BOT_TOKEN)
 admin_id = 1663788795
+# ویدئو ثابت
 VIDEO_PATH = 'vid.mp4'
+
+# لینک آپلود شده ویدئو
 uploaded_video_id = 'BAACAgQAAxkDAAMHZp679V6OZLA4aKjc4bJ3x0HzSL8AAtQVAAKqBPlQxhJN7Q3FG0M1BA'
 
 # Initialize new_users
